@@ -22,31 +22,51 @@
             </ul>
         </header>
     </div>
-    <div>
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 70px;">
         <h1>Tambah Film</h1>
-        <form method="post" action="{{route('film.newFilm')}}">
+        <form class="bg-body-tertiary" style="width: 500px; padding: 50px; border-radius: 20px" method="post" action="{{route('film.newFilm')}}">
             @csrf
-            <div class="">
-                <label for="title">judul film</label>
-                <input type="text" name="judul_film" id="title" placeholder="judul film">
+            <div class="row g-3">
+
+                <div class="col-12">
+                    <label for="judul_film" class="form-label">Judul Film</label>
+                    <input type="text" class="form-control" id="judul_film" name="judul_film" placeholder="isi judul film">
+                    <div class="invalid-feedback">
+                        judul film wajib di isi
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="genre" class="form-label">Genre</label>
+                    <input type="text" class="form-control" id="genre" name="genre" placeholder="genre film">
+                    <div class="invalid-feedback">
+                        genre film wajib di isi
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="tahun_rilis" class="form-label">Tahun Rilis</label>
+                    <input type="number" class="form-control" id="tahun_rilis" name="tahun_rilis" placeholder="tahun rilis film">
+                    <div class="invalid-feedback">
+                        tahun film wajib di isi
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="sutradara" class="form-label">Sutradara</label>
+                    <input type="text" class="form-control" id="sutradara" name="sutradara" placeholder="sutradara film">
+                    <div class="invalid-feedback">
+                        sutradara film wajib di isi
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="deskripsi_film" class="form-label">Deskripsi film</label>
+                    <textarea class="form-control" name="deskripsi_film" id=""></textarea>
+                    <div class="invalid-feedback">
+                        deskripsi film wajib di isi
+                    </div>
+                </div>
+                <div>
+                    <input class=" btn btn-primary" type="submit" value="tambah film">
+                </div>
             </div>
-            <div>
-                <label for="genre">genre</label>
-                <input type="text" name="genre" id="genr" placeholder="genre">
-            </div>
-            <div>
-                <label for="tahun_rilis">tahun rilis</label>
-                <input type="text" name="tahun_rilis" id="tahun_rilis" placeholder="tahun rilis">
-            </div>
-            <div>
-                <label for="sutradara">sutradara</label>
-                <input type="text" name="sutradara" id="sutradara" placeholder="sutradara">
-            </div>
-            <div>
-                <label for="deskripsi_film">deskripsi film</label>
-                <input type="text" name="deskripsi_film" id="deskripsi_film" placeholder="deskripsi_film">
-            </div>
-            <input type="submit" value="tambah film">
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -21,6 +21,12 @@
                 <li class="nav-item"><a href="{{route('film.allFilm')}}" class="nav-link text-white">Daftar Film</a></li>
                 <li class="nav-item"><a href="{{route('user.tambah-film')}}" class="nav-link text-white">Tambah Film</a></li>
             </ul>
+            <div>
+                <form action="{{route('user.logOut')}}" method="post">
+                    @csrf
+                    <input class="btn btn-danger" type="submit" value="log out"></input>
+                </form>
+            </div>
         </header>
     </div>
 
@@ -50,12 +56,10 @@
                         <td>{{ $watchlists->status}}</td>
                         <td style="display: flex; justify-content: center">
                             <div style="display: flex; gap: 10px">
-                                @if ($watchlists->status !== "ditonton")
                                 <form method="POST" action="{{ route('film.updateStatus', ['id_film' => $watchlists->id_watchlists]) }}">
                                     @csrf
                                     <button type="submit">Update</button>
                                 </form>
-                                @endif
                                 <form method="POST" action="{{ route('watchlist.delete', ['id_watchlist' => $watchlists->id_watchlists]) }}">
                                     @csrf
                                     @method('delete')

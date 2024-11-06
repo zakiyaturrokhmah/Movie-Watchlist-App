@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengguna;
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\Validator;
+use Illuminate\support\Facades\Cookie;
 
 class PenggunaController extends Controller
 {
@@ -76,5 +77,12 @@ class PenggunaController extends Controller
     public function addFilm()
     {
         return view('tambah-film');
+    }
+
+    public function logOut()
+    {
+        Cookie::queue(Cookie::forget('id_pengguna'));
+
+        return redirect()->route('page.login');
     }
 }

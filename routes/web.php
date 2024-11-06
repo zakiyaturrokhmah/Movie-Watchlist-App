@@ -31,3 +31,4 @@ Route::get('/tambah-film', [PenggunaController::class, 'addFilm'])->name('user.t
 Route::delete('/film/{id_film}', [FilmController::class, 'deleteFilm'])->name('film.delete');
 Route::post('/film/update-status/{id_film}', [FilmController::class, 'updateStatusFilm'])->name('film.updateStatus');
 Route::delete('/watchlist/delete/{id_watchlist}', [FilmController::class, 'deleteWatchlist'])->name('watchlist.delete');
+Route::post('/log-out', [PenggunaController::class, 'logOut'])->name('user.logOut');
